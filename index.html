@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOVI - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="flex-container">
+        <header>
+            <div class="nav-container">
+                <div class="logo-container">
+                    <img src="images/Logo.png" alt="SOVI Logo" class="logo">
+                    <h1>SOVI</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" aria-current="page">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Welcome to SOVI's Garden</h2>
+                    <p>Discover the beauty of nature indoors. Our curated collection brings modern elegance and lush greenery to your spaces, tailored for plant lovers like you.</p>
+                    <a href="shop.html" class="button">Go Shopping</a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/Logo.png" alt="Hero Plant">
+                </div>
+            </section>
+			
+			<section class="featured-section">
+    <h2 class="featured-title">Featured Pictures</h2>
+			</section>
+			<p class="featured-description">
+    Enjoy a selection of our favorite curated images showcasing our passion for plants and nature.
+<section class="carousel">
+    <div class="carousel-container">
+        <div class="carousel-slide active">
+            <img src="images/1.jpg" alt="Image 1">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/2.jpg" alt="Image 2">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/3.jpg" alt="Image 3">
+        </div>
+		 <div class="carousel-slide">
+            <img src="images/4.jpg" alt="Image 3">
+        </div>
+		<div class="carousel-slide">
+            <img src="images/5.jpg" alt="Image 3">
+        </div>
+    </div>
+    <button class="carousel-prev">❮</button>
+    <button class="carousel-next">❯</button>
+</section>
+<script>
+const slides = document.querySelectorAll('.carousel-slide');
+const prevButton = document.querySelector('.carousel-prev');
+const nextButton = document.querySelector('.carousel-next');
+let currentIndex = 0;
+
+function updateCarousel() {
+    slides.forEach((slide, index) => {
+        const offset = index - currentIndex;
+        slide.style.transform = `translateX(${offset * 100}%)`;
+        slide.classList.remove('active');
+
+        if (offset === 0) {
+            slide.style.transform += ` scale(1)`;
+            slide.style.opacity = '1';
+            slide.classList.add('active');
+        } else {
+            slide.style.transform += ` scale(0.8)`;
+            slide.style.opacity = '0.5';
+        }
+    });
+}
+
+prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+    updateCarousel();
+});
+
+nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+    updateCarousel();
+});
+
+updateCarousel();
+
+</script>
+        </main>
+    </div>
+	
+</body>
+</html>
